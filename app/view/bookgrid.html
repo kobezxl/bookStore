@@ -1,0 +1,99 @@
+
+    <!--<div class="content-bar">
+        <div id="left-menu" class="">
+            <h3 style="text-align: center">图书列表</h3>
+            <ul>
+                <li ng-class="{true:'active',false:''}[all]"><a href="javascript:void(0);" ng-click="changeTab('all')">全部图书</a></li>
+                <li ng-class="{true:'active'}[it]"><a href="javascript:void(0);" ng-click="changeTab('it')">计算机</a></li>
+                <li ng-class="{true:'active'}[english]"><a href="javascript:void(0);" ng-click="changeTab('english')">英语</a></li>
+                <li ng-class="{true:'active'}[psychology]"><a href="javascript:void(0);" ng-click="changeTab('psychology')">心理学</a></li>
+                <li ng-class="{true:'active'}[story]"><a href="javascript:void(0);" ng-click="changeTab('story')">故事大王</a></li>
+                <li ng-class="{true:'active'}[literature]"><a href="javascript:void(0);" ng-click="changeTab('literature')">文学</a></li>
+                <li ng-class="{true:'active'}[geography]"><a href="javascript:void(0);" ng-click="changeTab('geography')">地理</a></li>
+                <li ng-class="{true:'active'}[physics]"><a href="javascript:void(0);" ng-click="changeTab('physics')">物理</a></li>
+            </ul>
+        </div>
+    </div>-->
+
+    <div class="content-top" ng-init="initPage()">
+        <!--<div class="input-group drop-select">
+            显示
+            <select  class="page-select"  ng-model="selectedName" ng-options="x for x in names"  ng-change="selectChange(selectedName)">
+            </select>条
+        </div>-->
+        <div class="input-group detail-search">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+               <button class="btn btn-default" type="button">搜索</button>
+            </span>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="table-responsive table_content">
+            <table class="table table-bordered table_backg">
+                <thead>
+                    <tr>
+                     <th>序号</th>
+                     <th>书名</th>
+                     <th>编号</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in tableList track by $index">
+                        <td>{{$index+1}}</td>
+                        <td><button class="btn btn-link" ng-click="gotoPage(row.code)">{{row.name}}</button></td>
+                        <td>{{row.code}}</td>
+                    </tr>
+                </tbody>
+                <tfoot >
+                    <tr>
+                        <td colspan="3" style="background: white">
+                            <div page-pagition   tableData="tableResult" ename="ondisplay"></div>
+                           <!-- <ul class="nav">
+                                &lt;!&ndash;<li ng-repeat="x in pageList track by $index"><a ng-click="getCurrentItems(x)">{{$index+1}}</a></li>&ndash;&gt;
+                                <li>
+                                    <a>首页</a>
+                                    <a>上一页</a>
+                                    <a>下一页</a>
+                                    <a>尾页</a>
+
+                                </li>
+                            </ul>-->
+                        </td>
+                    </tr>
+                </tfoot>
+               <!-- <div >
+                    <h3>指令scope参数——false、true、{}对比测试</h3>
+                    parent:
+                    <div>
+                        <span> {{parentName}}</span>
+                        <input type="text" ng-model="parentName" />
+                    </div>
+                    <br />
+                    <child-a></child-a>
+                    <br />
+                    <child-b></child-b>
+                    <br />
+                    <child-c parent-name="parentName"></child-c>
+                </div>
+                &lt;!&ndash;t1指令模板&ndash;&gt;
+                <script type="text/html" id="t1">
+                    <div>
+                        <span>{{parentName}}</span>
+                        <input type="text" ng-model="parentName" />
+                    </div>
+                </script>-->
+            </table>
+        </div>
+    </div>
+
+
+
+<!--//使用ng-options x for x in names
+  <select ng-init="selectedName = names[0]" ng-model="selectedName" ng-options="x for x in names">
+  </select>
+  //使用ng-repeat
+  <select>
+    <option ng-repeat="x in names">{{x}}</option>
+  </select>
+-->

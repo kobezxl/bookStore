@@ -1,0 +1,37 @@
+<form class="form-horizontal login-form">
+
+    <div class="form-group">
+        <h1 style="text-align: center">彩云书城</h1>
+        <h3 style="text-align: center">欢迎您</h3>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="view.name" placeholder="登录名">
+        </div>
+    </div>
+    <div class="form-group">
+        <label  class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control"   ng-model="view.password" placeholder="密码">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="remember"> Remember me
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-default" ui-sref="booklist({bookType:1})">登录</a>
+            <!--<button ng-click="goLogin()" class="btn btn-default">登录</button>-->
+            <button ng-click="reset()" class="btn btn-default" style="margin-left: 25%;">取消</button>
+        </div>
+
+    </div>
+</form>

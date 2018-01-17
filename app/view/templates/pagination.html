@@ -1,0 +1,65 @@
+<!--<ul class="pagination">
+    <li ><a href="#">&laquo;</a></li>
+    <li ng-class="{active:item==pgs.pageNo}"><a href="#">{{pgs.pageNo}}</a></li>
+    <li  ng-if="item >= pgs.currentPage && pgs.pageTotal !== pgs.pageNo"><a >...</a></li>
+    <li  ng-repeat="ipage in pages" ng-click=""><a href="javascript:void(0)">{{ipage}}</a></li>
+    <li  ng-if="page <= pageNum && lastPage !== pageNum"><a href="javascript:void(0)">...</a></li>
+    <li ng-class="{active:item==tableData.pageNo}" ng-if="lastPage>pageNum && firstPage <= lastPage-pageMum"><a href="#">{{lastPage}}</a></li>
+    <li ><a href="#">&raquo;</a></li>
+    <li >每页<select  class="page-select"  ng-model="selectedName" ng-options="x for x in names"  ng-change="selectChange(selectedName)">
+    </select>条</li>
+    <li>共{{pgs.pageTotal}}页</li>
+</ul>-->
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a ng-click="gotoLast()"  aria-label="Previous">
+                <span aria-hidden="true">首页</span>
+            </a>
+        </li>
+        <li ng-class="{active:pgs.currentPage==item}" ng-if="pgs.pageTotal>(item-1)" ng-repeat="item in pgs.page track by $index"><a  ng-click="gotoPage(item)">{{item}}</a></li>
+        <!--<li ng-class="{active:pgs.currentPage==1}" ng-if="pgs.pageTotal>0"><a ng-click="gotoPage(1)">1</a></li>
+        <li ng-class="{active:pgs.currentPage==2}" ng-if="pgs.pageTotal>1"><a ng-click="gotoPage(2)">2</a></li>
+        <li ng-class="{active:pgs.currentPage==3}" ng-if="pgs.pageTotal>2"><a ng-click="gotoPage(3)">3</a></li>
+        <li ng-class="{active:pgs.currentPage==4}" ng-if="pgs.pageTotal>3"><a ng-click="gotoPage(4)">4</a></li>
+        <li ng-class="{active:pgs.currentPage==5}" ng-if="pgs.pageTotal>4"><a ng-click="gotoPage(5)">5</a></li>-->
+        <li >
+            <a ng-click="gotoNext()" aria-label="Next" ng-disabled="pgs.pageTotal<5">
+                <span aria-hidden="true">尾页</span>
+            </a>
+        </li>
+        <li >每页<select  class="page-select"  ng-model="selectedName" ng-options="x for x in names"  ng-change="selectChange(selectedName)">
+        </select>条</li>
+        <li>共{{pgs.pageTotal}}页</li>
+    </ul>
+</nav>
+
+<!--
+<ul class="nav">
+    &lt;!&ndash;<li ng-repeat="x in pageList track by $index"><a ng-click="getCurrentItems(x)">{{$index+1}}</a></li>&ndash;&gt;
+    <li>
+        <a>首页</a>
+        <a>上一页</a>
+        <a>下一页</a>
+        <a>尾页</a>
+    </li>
+</ul>-->
+
+<!--<div class="page-list">
+    <ul class="pagination" ng-show="conf.totalItems > 0">
+        <li ng-class="{disabled: conf.currentPage == 1}" ng-click="prevPage()"><span>&laquo;</span></li>
+        <li ng-repeat="item in pageList track by $index" ng-class="{active: item == conf.currentPage, separate: item == \'...\'}"
+        ng-click="changeCurrentPage(item)">
+        <span>{{ item }}</span>
+        </li>
+        <li ng-class="{disabled: conf.currentPage == conf.numberOfPages}" ng-click="nextPage()"><span>&raquo;</span></li>
+        </ul>
+    <div class="page-total" ng-show="conf.totalItems > 0">
+        第<input type="text" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/>页
+        每页<select ng-model="conf.itemsPerPage" ng-options="option for option in conf.perPageOptions " ng-change="changeItemsPerPage()"></select>
+        共<strong>{{ conf.totalItems }}</strong>条
+        </div>
+    <div class="no-items" ng-show="conf.totalItems <= 0">暂无数据</div>
+    </div>-->
+

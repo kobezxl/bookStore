@@ -1,0 +1,12 @@
+<div class="tab-pane">
+    <ul class="nav nav-tabs">
+        <li ng-class="{active:showBook}"><a  ng-click="changeTab('showBook')">关于本书</a></li>
+        <li ng-class="{active:showAuth}"><a  ng-click="changeTab('showAuth')">关于作者</a></li>
+    </ul>
+    <div class="tab-content" ng-if="showBook">
+        该书的编号是{{code}}，在该领域有极大的著作影响力。
+    </div>
+    <div class="tab-content" ng-if="showAuth">
+        作者
+    </div>
+</div>
